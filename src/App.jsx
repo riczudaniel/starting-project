@@ -11,7 +11,7 @@ import TabButton from "./components/TabButton";
 
 
 function App() {
-  const [ selectedTopic, setSelectedTopic ] = useState("components")
+  const [ selectedTopic, setSelectedTopic ] = useState()
 
 
 
@@ -50,8 +50,8 @@ function App() {
           </menu>
 
           {/* This content will be updated, depending on what we click. */}
-          <h2>{selectedTopic}</h2>
-          <div id="tab-content">
+          {!selectedTopic ? <p>Please select a topic</p> :
+          <div id="tab-content">         
             <h3>{EXAMPLES[selectedTopic].title}</h3>
             <p>{EXAMPLES[selectedTopic].description}</p>
             <pre>
@@ -59,7 +59,7 @@ function App() {
                {EXAMPLES[selectedTopic].code}
               </code>
             </pre>
-          </div>
+          </div>}
         </section>
 
       </main>
